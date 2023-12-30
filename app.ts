@@ -21,7 +21,7 @@ app.use(cookieParser());
 // cors => cross origin resource sharing
 app.use(
   cors({
-    origin: ["https://techies-client.vercel.app/"],
+    origin: ["https://techies-client.vercel.app"],
     credentials: true,
   })
 );

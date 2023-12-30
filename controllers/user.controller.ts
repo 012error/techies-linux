@@ -207,13 +207,13 @@ export const updateAccessToken = CatchAsyncError(
         return next(new ErrorHandler(message, 400));
       }
       const session = await redis.get(decoded.id as string);
-         
+
       if (!session) {
         return next(
           new ErrorHandler("Please login for access this resources!", 400)
         );
       }
-      
+
       const user = JSON.parse(session);
 
       const accessToken = jwt.sign(
@@ -430,7 +430,7 @@ export const updateUserRole = CatchAsyncError(
       const isUserExist = await userModel.findOne({ email });
       if (isUserExist) {
         const id = isUserExist._id;
-        updateUserRoleService(res,id, role);
+        updateUserRoleService(res, id, role);
       } else {
         res.status(400).json({
           success: false,
